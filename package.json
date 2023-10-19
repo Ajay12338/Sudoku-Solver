@@ -1,0 +1,17 @@
+{
+  "name": "suduko-solver",
+  "version": "1.0.0",
+  "description": "Sudoku Solver yo!!!!",
+  "main": "App.js",
+  "scripts": {
+    "start": "npx parcel index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ajay S",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.10.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

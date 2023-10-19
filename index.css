@@ -1,0 +1,35 @@
+#heading {
+  text-align: center;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn > button {
+  margin: 10px;
+}
+.sudoku-container {
+  display: grid;
+  grid-template-columns: repeat(9, 90px);
+  grid-template-rows: repeat(9, 90px);
+  border-top: 7px solid black;
+  border-left: 7px solid black;
+  border-bottom: 7px solid black;
+}
+.sudoku-container > div {
+  font-size: 4em;
+  text-align: center;
+  border: 2px solid black;
+}
+.sudoku-container > div:nth-child(3n) {
+  border-right: 7px solid black;
+}
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#bottom-heavy {
+  border-bottom: 7px solid black;
+}
