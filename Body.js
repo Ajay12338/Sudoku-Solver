@@ -14,20 +14,42 @@ const Body = () => {
   ]);
   return (
     <>
+      <div className="btn">
+        <button
+          onClick={async () => {
+            let data = await fetch("https://sudoku-api.vercel.app/api/dosuku");
+            data = await data.json();
+            let grid = data.newboard.grids[0].value;
+            for (let i = 0; i < 9; i++) {
+              for (let j = 0; j < 9; j++) {
+                if (grid[i][j] == 0) grid[i][j] = "";
+              }
+            }
+            setSudokuBoard(grid);
+          }}
+        >
+          Generate Random Board
+        </button>
+        <button>Input a Board</button>
+      </div>
       <div className="body">
         <div className="sudoku-container">
           {sudokuBoard.map((arr, i) => {
-            return arr.map((currVal) => {
+            return arr.map((currVal, j) => {
               if (i === 2 || i === 5) {
-                return <div id="bottom-heavy">{currVal}</div>;
+                return (
+                  <div id="bottom-heavy" key={j}>
+                    {currVal}
+                  </div>
+                );
               }
-              return <div>{currVal}</div>;
+              return <div key={j}>{currVal}</div>;
             });
           })}
         </div>
       </div>
       <div className="btn">
-        <button>Solve</button>
+        <button onClick={() => {}}>Solve</button>
       </div>
     </>
   );
