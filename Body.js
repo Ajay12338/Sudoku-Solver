@@ -1,17 +1,29 @@
 import { useState } from "react";
 
 const Body = () => {
-  let [sudokuBoard, setSudokuBoard] = useState([
-    [5, 3, "", "", 7, "", "", "", ""],
-    [6, "", "", 1, 9, 5, "", "", ""],
-    ["", 9, 8, "", "", "", "", 6, ""],
-    [8, "", "", "", 6, "", "", "", 3],
-    [4, "", "", 8, "", 3, "", "", 1],
-    [7, "", "", "", 2, "", "", "", 6],
-    ["", 6, "", "", "", "", 2, 8, ""],
-    ["", "", "", 4, 1, 9, "", "", 5],
-    ["", "", "", "", 8, "", "", 7, 9],
+  let [solveBoard, setSolveBoard] = useState([
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
   ]);
+  let [sudokuBoard, setSudokuBoard] = useState([
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+  ]);
+
   return (
     <>
       <div className="btn">
@@ -19,13 +31,15 @@ const Body = () => {
           onClick={async () => {
             let data = await fetch("https://sudoku-api.vercel.app/api/dosuku");
             data = await data.json();
-            let grid = data.newboard.grids[0].value;
+            let questionGrid = data.newboard.grids[0].value;
+            let solutionGrid = data.newboard.grids[0].solution;
             for (let i = 0; i < 9; i++) {
               for (let j = 0; j < 9; j++) {
-                if (grid[i][j] == 0) grid[i][j] = "";
+                if (questionGrid[i][j] === 0) questionGrid[i][j] = "";
               }
             }
-            setSudokuBoard(grid);
+            setSudokuBoard(questionGrid);
+            setSolveBoard(solutionGrid);
           }}
         >
           Generate Random Board
@@ -49,7 +63,13 @@ const Body = () => {
         </div>
       </div>
       <div className="btn">
-        <button onClick={() => {}}>Solve</button>
+        <button
+          onClick={() => {
+            setSudokuBoard(solveBoard);
+          }}
+        >
+          Solve
+        </button>
       </div>
     </>
   );

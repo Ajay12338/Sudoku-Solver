@@ -22,8 +22,22 @@
   text-align: center;
   border: 2px solid black;
 }
+.sudoku-container > div:nth-child(n) {
+  background-color: grey;
+  color: aqua;
+}
+.sudoku-container > div:nth-child(2n) {
+  background-color: #ffffff;
+  color: #000000;
+}
 .sudoku-container > div:nth-child(3n) {
+  background-color: #ffffff;
   border-right: 7px solid black;
+  color: #000000;
+}
+.sudoku-container > div:nth-child(4n) {
+  background-color: #ffffff;
+  color: #000000;
 }
 .body {
   display: flex;
