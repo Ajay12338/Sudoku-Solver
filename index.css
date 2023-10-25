@@ -1,5 +1,17 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 #heading {
   text-align: center;
+  font-family: "Playpen Sans", cursive;
+  font-size: 2rem;
+}
+#jpn-txt {
+  text-align: center;
+  font-family: "Noto Serif JP", serif;
+  font-size: 2rem;
 }
 .btn {
   display: flex;
@@ -7,12 +19,26 @@
   align-items: center;
 }
 .btn > button {
-  margin: 10px;
+  font-family: "Playpen Sans", cursive;
+  font-size: 1rem;
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.btn > button:hover {
+  background-color: #2980b9;
+  transform: scale(1.25);
+  font-size: 1.25rem;
 }
 .sudoku-container {
   display: grid;
-  grid-template-columns: repeat(9, 90px);
-  grid-template-rows: repeat(9, 90px);
+  grid-template-columns: repeat(9, 72px);
+  grid-template-rows: repeat(9, 72px);
   border-top: 7px solid black;
   border-left: 7px solid black;
   border-bottom: 7px solid black;
@@ -31,13 +57,7 @@
   color: #000000;
 }
 .sudoku-container > div:nth-child(3n) {
-  background-color: #ffffff;
   border-right: 7px solid black;
-  color: #000000;
-}
-.sudoku-container > div:nth-child(4n) {
-  background-color: #ffffff;
-  color: #000000;
 }
 .body {
   display: flex;
@@ -46,4 +66,41 @@
 }
 #bottom-heavy {
   border-bottom: 7px solid black;
+}
+#footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-txt {
+  font-family: "Sacramento", cursive;
+  font-size: 5rem;
+  font-weight: 400;
+  color: #41b0bf;
+  margin: 10px;
+}
+@media screen and (max-width: 768px) {
+  .btn > button {
+    margin: 10px;
+    padding: 8px 16px;
+  }
+
+  .sudoku-container {
+    grid-template-columns: repeat(9, 50px);
+    grid-template-rows: repeat(9, 50px);
+    font-size: 3em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .btn > button {
+    margin: 5px;
+    padding: 6px 12px;
+  }
+
+  .sudoku-container {
+    grid-template-columns: repeat(9, 40px);
+    grid-template-rows: repeat(9, 40px);
+    font-size: 2em;
+  }
 }

@@ -1,12 +1,8 @@
 const Footer = () => {
   return (
-    <div>
-      <hr />
-      <p>Ajay</p>
-      <p>2023-2024</p>
-      <p>Linkedin</p>
-      <p>Github</p>
-      <p>Instagram</p>
+    <div id="footer-container">
+      <p className="footer-txt">Ajay S</p>
+      <img src="https://akshaysaini.in/img/foot.jpg" alt="temple-img-footer" />
     </div>
   );
 };
