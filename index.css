@@ -2,16 +2,19 @@ html,
 body {
   margin: 0;
   padding: 0;
+  background: linear-gradient(90deg, #00ffff, #008080);
 }
 #heading {
   text-align: center;
   font-family: "Playpen Sans", cursive;
   font-size: 2rem;
+  color: #fff;
 }
 #jpn-txt {
   text-align: center;
   font-family: "Noto Serif JP", serif;
   font-size: 2rem;
+  color: #fff;
 }
 .btn {
   display: flex;
@@ -23,8 +26,8 @@ body {
   font-size: 1rem;
   margin: 20px;
   padding: 10px 20px;
-  background-color: #3498db;
-  color: #fff;
+  background-color: lightgreen;
+  color: #000000;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -76,9 +79,10 @@ body {
   font-family: "Sacramento", cursive;
   font-size: 5rem;
   font-weight: 400;
-  color: #41b0bf;
+  color: #fff;
   margin: 10px;
 }
+
 @media screen and (max-width: 768px) {
   .btn > button {
     margin: 10px;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import solve from "./soduku_backtracking";
 const Body = () => {
   let [solveBoard, setSolveBoard] = useState([
     ["", "", "", "", "", "", "", "", ""],
@@ -23,7 +23,9 @@ const Body = () => {
     ["", "", "", "", "", "", "", "", ""],
     ["", "", "", "", "", "", "", "", ""],
   ]);
-
+  function create2DCopyArray(arr) {
+    return arr.map((subarray) => [...subarray]);
+  }
   return (
     <>
       <div className="btn">
@@ -32,7 +34,8 @@ const Body = () => {
             let data = await fetch("https://sudoku-api.vercel.app/api/dosuku");
             data = await data.json();
             let questionGrid = data.newboard.grids[0].value;
-            let solutionGrid = data.newboard.grids[0].solution;
+            let copyQuestionGrid = create2DCopyArray(questionGrid);
+            let solutionGrid = solve(copyQuestionGrid);
             for (let i = 0; i < 9; i++) {
               for (let j = 0; j < 9; j++) {
                 if (questionGrid[i][j] === 0) questionGrid[i][j] = "";
@@ -44,7 +47,6 @@ const Body = () => {
         >
           Generate Random Board
         </button>
-        <button>Input a Board</button>
       </div>
       <div className="body">
         <div className="sudoku-container">
